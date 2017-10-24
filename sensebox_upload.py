@@ -46,6 +46,13 @@ def senseBoxUpload(boxID, sensorID, value):
         r.status_code
 
 try:
+        boxID="5947b313a4ad5900112e5ceb"
+        tempID = "5947bd17a4ad5900112ec9a7"
+        trueb1ID = "5947bdbba4ad5900112ed02c"
+        trueb2ID = "5947bdbba4ad5900112ed02d"
+        leitID = "5947bdbba4ad5900112ed02e"
+        print 'Uploading sensor data to Opensensemap. URL: https://www.opensensemap.org/explore/'+boxID
+
         while True:
                         # SERIAL WERTE AUSLESEN
                         valueCount = 0
@@ -73,12 +80,6 @@ try:
 
                         # SENSEBOX UPLOAD
                         if((int(round(time.time() * 1000)) - milli_start) > 5000):
-                                boxID="5947b313a4ad5900112e5ceb"
-                                tempID = "5947bd17a4ad5900112ec9a7"
-                                trueb1ID = "5947bdbba4ad5900112ed02c"
-                                trueb2ID = "5947bdbba4ad5900112ed02d"
-                                leitID = "5947bdbba4ad5900112ed02e"
-
                                 senseBoxUpload(boxID,tempID, a)
                                 senseBoxUpload(boxID,trueb1ID, b)
                                 senseBoxUpload(boxID,trueb2ID, c)
@@ -86,3 +87,4 @@ try:
 
 except KeyboardInterrupt:
         ser.close()
+
